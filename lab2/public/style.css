@@ -1,0 +1,161 @@
+:root {
+    --pale-purple: #e5d4ed;
+    --medium-slate-blue: #6d72c3;
+    --rebecca-purple: #5941a9;
+    --davys-gray: #514f59;
+    --dark-purple: #1d1128;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: var(--pale-purple);
+    color: var(--davys-gray);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+header {
+    background: var(--dark-purple);
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+nav {
+    margin-top: 0.5rem;
+}
+
+nav a {
+    margin: 0 0.6rem;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 1000;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background 0.25s;
+}
+
+nav a:hover {
+    background: var(--rebecca-purple);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+}
+
+.card {
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.card img.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 5px solid var(--medium-slate-blue);
+}
+
+.card h2 {
+    margin-bottom: 0.75rem;
+    color: var(--rebecca-purple);
+}
+
+.card p {
+    margin-bottom: 1.5rem;
+    color: var(--davys-gray);
+    font-size: 1.05rem;
+}
+
+.card .links {
+    margin-top: 1rem;
+}
+
+.card .links a {
+    display: inline-block;
+    margin: 0.4rem;
+    background: var(--medium-slate-blue);
+    color: #fff;
+    padding: 0.7rem 1.4rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card .links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    background: var(--rebecca-purple);
+}
+
+.section {
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    max-width: 800px;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.section h2 {
+    margin-bottom: 1.2rem;
+    color: var(--rebecca-purple);
+}
+
+.section p {
+    margin-bottom: 1.5rem;
+    color: var(--davys-gray);
+}
+
+.demo {
+    margin-top: 2rem;
+    padding: 1.2rem;
+    border: 1px dashed var(--medium-slate-blue);
+    border-radius: 10px;
+    background: var(--pale-purple);
+}
+
+footer {
+    background: var(--dark-purple);
+    color: #eee;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.95rem;
+    margin-top: auto;
+}
+
+footer a {
+    color: var(--medium-slate-blue);
+    text-decoration: none;
+    margin: 0 0.6rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

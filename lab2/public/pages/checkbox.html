@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Checkbox Demo</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .demo label {
+            font-size: 1.2em;
+            margin: 0.8rem 0;
+            display: block;
+            cursor: pointer;
+            color: var(--davys-gray);
+            transition: color 0.2s;
+        }
+        .demo input:checked + span {
+            color: var(--rebecca-purple);
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .demo {
+            border: 2px dashed var(--rebecca-purple);
+            background: var(--pale-purple);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        .demo img {
+            max-width: 200px;
+            margin: 0.5rem;
+            display: none;
+            border-radius: 12px;
+            border: 2px solid var(--medium-slate-blue);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+        }
+        #chaos-output {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--davys-gray);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="radiobutton.html">Radiobutton</a>
+            <a href="checkbox.html">Checkbox</a>
+            <a href="text-input.html">Text Input</a>
+            <a href="tabs.html">Tabs</a>
+            <a href="button.html">Button</a>
+            <a href="text-label.html">Text Label</a>
+            <a href="link.html">Link</a>
+            <a href="tooltip.html">Tooltip</a>
+            <a href="dropdown.html">Dropdown</a>
+            <a href="datagrid.html">Data Grid</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>What is a Checkbox?</h2>
+            <p>A <b>checkbox</b> allows the user to select <u>multiple options</u> from a set. It’s perfect for scenarios where more than one choice can apply, like picking your favorite internet memes.</p>
+            
+
+            <h3>Demo: Cursed Internet Collector</h3>
+            <p>Select any combination of items below to witness unpredictable chaos.</p>
+
+            <div class="demo">
+                <label><input type="checkbox" value="amogus"> <span>Amogus</span></label>
+                <label><input type="checkbox" value="shrek"> <span>Shrek</span></label>
+                <label><input type="checkbox" value="cat-laser"> <span>Laser Cat Attack</span></label>
+                <label><input type="checkbox" value="banana-phone"> <span>Banana Phone 3000</span></label>
+
+                <div id="chaos-output">Nothing selected yet…</div>
+
+                <img id="amogus" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3ZqdmUwMHNtdG9iZ3ZvZG5ya3FwMnIzNzlzZ3NoMGF5eGw0NGJiMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/4kWeXCB5jqCPJsmDWw/giphy.gif" alt="Amogus">
+                <img id="shrek" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZDVnMTc0aHBqN2J5amhuMDZueHVhb2N1ZXVmMDRsemkzYW00cG5oNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qIFJYOOi09bk4/giphy.gif" alt="Shrek">
+                <img id="cat-laser" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDJmeGtwNzVwb2V5bG96OXo3ejJxOXEweXVqdXJrN280Mnk4MnVueCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7FgDOBGyFLgns6aiKb/giphy.gif" alt="Cat shooting lasers">
+                <img id="banana-phone" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXdnaGJ3dm5meXlidDY0MHp0ZXJnM2tjN2s2dTE4NjRtcTgwNHFmaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wHri6YS3dHJSYzm0El/giphy.gif" alt="Banana phone">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Sokolov Oleksandr. The Tequila Sunset. Components of Software Engineering IV, Laboratory Work №2.</p>
+    </footer>
+
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const chaosOutput = document.getElementById('chaos-output');
+
+        checkboxes.forEach(box => box.addEventListener('change', () => {
+            const selected = [...checkboxes].filter(b => b.checked).map(b => b.value);
+            const images = document.querySelectorAll('.demo img');
+            images.forEach(img => img.style.display = 'none');
+
+            selected.forEach(value => document.getElementById(value).style.display = 'inline-block');
+
+            chaosOutput.textContent = selected.length
+                ? `Items active: ${selected.map(v => {
+                    if(v==='amogus') return 'Amogus';
+                    if(v==='shrek') return 'Shrek';
+                    if(v==='cat-laser') return 'Laser Cat Attack';
+                    if(v==='banana-phone') return 'Banana Phone 3000';
+                }).join(', ')}`
+                : 'Nothing selected yet…';
+
+            if(selected.includes('shrek') && selected.length === 1) {
+                setTimeout(() => alert("Shrek activated!"), 300);
+            }
+        }));
+    </script>
+</body>
+</html>

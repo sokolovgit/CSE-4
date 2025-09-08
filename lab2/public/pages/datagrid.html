@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Grid Demo</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 2rem;
+            background: var(--pale-purple);
+        }
+
+        th, td {
+            border: 2px solid var(--medium-slate-blue);
+            padding: 0.6rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: var(--medium-slate-blue);
+            color: white;
+        }
+
+        tr:hover {
+            background: var(--rebecca-purple);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .demo {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="radiobutton.html">Radiobutton</a>
+            <a href="checkbox.html">Checkbox</a>
+            <a href="text-input.html">Text Input</a>
+            <a href="tabs.html">Tabs</a>
+            <a href="button.html">Button</a>
+            <a href="text-label.html">Text Label</a>
+            <a href="link.html">Link</a>
+            <a href="tooltip.html">Tooltip</a>
+            <a href="dropdown.html">Dropdown</a>
+            <a href="datagrid.html">Data Grid</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>What is a Data Grid?</h2>
+            <p>A <b>data grid</b> displays tabular data in rows and columns. Useful for lists, tables, and dashboards.</p>
+
+            <h3>Demo: Fun dev team stats 👨‍💻</h3>
+            <div class="demo">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Favorite Drink</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sasha</td>
+                            <td>Backend</td>
+                            <td>Tequila</td>
+                        </tr>
+                        <tr>
+                            <td>Ruslan</td>
+                            <td>Backend</td>
+                            <td>Beer</td>
+                        </tr>
+                        <tr>
+                            <td>Vladyslav</td>
+                            <td>Unemployed</td>
+                            <td>Hooch</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Sokolov Oleksandr. The Tequila Sunset. Components of Software Engineering IV, Laboratory Work №2.</p>
+    </footer>
+</body>
+
+</html>

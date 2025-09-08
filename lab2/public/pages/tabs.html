@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tabs Demo</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tabs button {
+            padding: 0.6rem 1rem;
+            border: 2px solid var(--medium-slate-blue);
+            border-radius: 8px 8px 0 0;
+            background: var(--pale-purple);
+            cursor: pointer;
+        }
+
+        .tabs button.active {
+            background: var(--medium-slate-blue);
+            color: white;
+        }
+
+        .tab-content {
+            border: 2px solid var(--medium-slate-blue);
+            border-radius: 0 8px 8px 8px;
+            padding: 1rem;
+            background: var(--pale-purple);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="radiobutton.html">Radiobutton</a>
+            <a href="checkbox.html">Checkbox</a>
+            <a href="text-input.html">Text Input</a>
+            <a href="tabs.html">Tabs</a>
+            <a href="button.html">Button</a>
+            <a href="text-label.html">Text Label</a>
+            <a href="link.html">Link</a>
+            <a href="tooltip.html">Tooltip</a>
+            <a href="dropdown.html">Dropdown</a>
+            <a href="datagrid.html">Data Grid</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>What are Tabs?</h2>
+            <p><b>Tabs</b> allow switching between different sections of content in the same area.  
+               Great for organizing info without scrolling too much.</p>
+
+            <h3>Demo: Choose your drink</h3>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="beer">Beer 🍺</button>
+                <button class="tab-btn" data-tab="wine">Wine 🍷</button>
+                <button class="tab-btn" data-tab="cocktail">Cocktail 🍹</button>
+            </div>
+            <div class="tab-content" id="tab-content">
+                Beer 🍺 – Because sometimes water just won’t do.
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Sokolov Oleksandr. The Tequila Sunset. Components of Software Engineering IV, Laboratory Work №2.</p>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+        const content = document.getElementById('tab-content');
+
+        const tabTexts = {
+            beer: 'Beer 🍺 – Because sometimes water just won’t do.',
+            wine: 'Wine 🍷 – Turning “just one glass” into a philosophy since forever.',
+            cocktail: 'Cocktail 🍹 – Fancy enough to feel sophisticated, but strong enough to regret it tomorrow.'
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                content.textContent = tabTexts[tab.dataset.tab];
+            });
+        });
+    </script>
+</body>
+
+</html>

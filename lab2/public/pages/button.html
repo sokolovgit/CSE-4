@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Button Demo</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .demo button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: var(--medium-slate-blue);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .demo button:hover {
+            transform: scale(1.1);
+        }
+
+        .output {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="radiobutton.html">Radiobutton</a>
+            <a href="checkbox.html">Checkbox</a>
+            <a href="text-input.html">Text Input</a>
+            <a href="tabs.html">Tabs</a>
+            <a href="button.html">Button</a>
+            <a href="text-label.html">Text Label</a>
+            <a href="link.html">Link</a>
+            <a href="tooltip.html">Tooltip</a>
+            <a href="dropdown.html">Dropdown</a>
+            <a href="datagrid.html">Data Grid</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>What is a Button?</h2>
+            <p>A <b>button</b> allows the user to trigger an action when clicked.</p>
+
+            <h3>Demo: Click to get a random meme reaction</h3>
+            <div class="demo">
+                <button id="btn">Click Me!</button>
+                <div class="output" id="output">No click yet (please click)</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Sokolov Oleksandr. The Tequila Sunset. Components of Software Engineering IV, Laboratory Work №2.</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const output = document.getElementById('output');
+        const memes = [
+            '😂 ROFL!',
+            '😎 Cool!',
+            '🤯 Mind blown!',
+            '🥳 Party time!',
+            '🤔 Hmmm...'
+        ];
+
+        btn.addEventListener('click', () => {
+            const meme = memes[Math.floor(Math.random() * memes.length)];
+            output.textContent = meme;
+        });
+    </script>
+</body>
+
+</html>

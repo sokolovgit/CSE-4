@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Text Label Demo</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .demo {
+            margin-top: 2rem;
+        }
+
+        .demo label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .demo input {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="radiobutton.html">Radiobutton</a>
+            <a href="checkbox.html">Checkbox</a>
+            <a href="text-input.html">Text Input</a>
+            <a href="tabs.html">Tabs</a>
+            <a href="button.html">Button</a>
+            <a href="text-label.html">Text Label</a>
+            <a href="link.html">Link</a>
+            <a href="tooltip.html">Tooltip</a>
+            <a href="dropdown.html">Dropdown</a>
+            <a href="datagrid.html">Data Grid</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>What is a Text Label?</h2>
+            <p>A <b>text label</b> is associated with a form input to describe its purpose.  
+               Clicking the label focuses the input or toggles the element.</p>
+
+            <h3>Demo: Label + Input</h3>
+            <div class="demo">
+                <label for="name">Your nickname:</label>
+                <input type="text" id="name" placeholder="Type here">
+                <div id="output">Nothing typed yet :(</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Sokolov Oleksandr. The Tequila Sunset. Components of Software Engineering IV, Laboratory Work №2.</p>
+    </footer>
+
+    <script>
+        const input = document.getElementById('name');
+        const output = document.getElementById('output');
+        input.addEventListener('input', () => {
+            output.textContent = input.value ? `Your nickname: ${input.value}` : 'Nothing typed yet :( ';
+        });
+    </script>
+</body>
+
+</html>

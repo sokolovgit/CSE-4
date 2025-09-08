@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown Demo</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .demo select {
+            padding: 0.6rem;
+            border: 2px solid var(--medium-slate-blue);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--pale-purple);
+        }
+
+        .output {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .demo {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="radiobutton.html">Radiobutton</a>
+            <a href="checkbox.html">Checkbox</a>
+            <a href="text-input.html">Text Input</a>
+            <a href="tabs.html">Tabs</a>
+            <a href="button.html">Button</a>
+            <a href="text-label.html">Text Label</a>
+            <a href="link.html">Link</a>
+            <a href="tooltip.html">Tooltip</a>
+            <a href="dropdown.html">Dropdown</a>
+            <a href="datagrid.html">Data Grid</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>What is a Dropdown?</h2>
+            <p>A <b>dropdown</b> allows the user to select one option from a list of options.</p>
+
+            <h3>Demo: Pick your snack</h3>
+            <div class="demo">
+                <select id="snack">
+                    <option value="">Choose</option>
+                    <option value="coffee">Coffee</option>
+                    <option value="cookies">Cookies</option>
+                    <option value="pizza">Pizza</option>
+                    <option value="energy">Energy drink</option>
+                </select>
+                <div class="output" id="output">No snack chosen</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Sokolov Oleksandr. The Tequila Sunset. Components of Software Engineering IV, Laboratory Work №2.</p>
+    </footer>
+
+    <script>
+        const dropdown = document.getElementById('snack');
+        const output = document.getElementById('output');
+
+        dropdown.addEventListener('change', () => {
+            output.textContent = dropdown.value ? `You chose: ${dropdown.value} 😎` : 'No snack chosen 😢';
+        });
+    </script>
+</body>
+
+</html>

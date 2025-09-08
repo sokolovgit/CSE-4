@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Radiobutton Demo</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .demo img, .demo video {
+            max-width: 400px;
+            margin-top: 1.5rem;
+            display: none;
+            border-radius: 12px;
+            border: 3px solid var(--medium-slate-blue);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+        .demo label {
+            font-size: 1.2em;
+            margin: 0.8rem 0;
+            display: block;
+            cursor: pointer;
+            color: var(--davys-gray);
+            transition: color 0.2s;
+        }
+        .demo input:checked + span {
+            color: var(--rebecca-purple);
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .demo {
+            border: 2px dashed var(--rebecca-purple);
+            background: var(--pale-purple);
+        }
+        .explanation {
+            margin-bottom: 1.5rem;
+        }
+        .explanation ul {
+            list-style-type: disc;
+            margin-left: 2rem;
+            color: var(--davys-gray);
+        }
+        .explanation li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="radiobutton.html">Radiobutton</a>
+            <a href="checkbox.html">Checkbox</a>
+            <a href="text-input.html">Text Input</a>
+            <a href="tabs.html">Tabs</a>
+            <a href="button.html">Button</a>
+            <a href="text-label.html">Text Label</a>
+            <a href="link.html">Link</a>
+            <a href="tooltip.html">Tooltip</a>
+            <a href="dropdown.html">Dropdown</a>
+            <a href="datagrid.html">Data Grid</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>What is a Radiobutton?</h2>
+            <p>A <b>radiobutton</b> allows the user to select <u>only one option</u> from a group.
+                It’s ideal when there’s a single choice to make, like picking your daily mood as a developer.</p>
+
+            <h3>Demo: Choose Your Internet Meme</h3>
+            <div class="demo">
+                <label><input type="radio" name="fate" value="rickroll"> <span>Get Rickrolled (Or not)</span></label>
+                <label><input type="radio" name="fate" value="potuzhno"> <span>Potuzhno</span></label>
+                <label><input type="radio" name="fate" value="screamer"> <span>Choose me</span></label>
+
+                <!-- Rickroll GIF -->
+                <img id="rickroll" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW1hZjhwZXI5bXRyeWFjMnlkeHFwM2NqNjRjbndraHdtd25pdWphNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Ju7l5y9osyymQ/giphy.gif" alt="Rickroll GIF">
+
+                <!-- Potuzhno -->
+                <img id="potuzhno" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZiZzh1ajhxYXY3MTR1Z283cWh3ZnZ4d3pzb3BybjAzOXRhdm9kZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LodHgnktVlp7gMAo3L/giphy.gif" alt="Potuzhno GIF">
+
+                <!-- Screamer GIF (mildly spooky for the lulz) -->
+                <img id="screamer" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3dyZHk0aWYwdmF5cHJpcm11cmZ0ODFxam9jeHhvZW4ycnZiY3g1ZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/rl83xsC6FeO7mY7a5Q/giphy.gif" alt="Spooky JD Vance">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Sokolov Oleksandr. The Tequila Sunset. Components of Software Engineering IV, Laboratory Work №2.</p>
+    </footer>
+
+    <script>
+        const radios = document.querySelectorAll('input[name="fate"]');
+        const media = document.querySelectorAll('.demo img, .demo video');
+        radios.forEach(r => r.addEventListener('change', () => {
+            media.forEach(m => m.style.display = "none");
+            document.getElementById(r.value).style.display = "block";
+            if (r.value === "screamer") {
+                setTimeout(() => alert("JD Vance loves couches"), 500);
+            }
+        }));
+    </script>
+</body>
+
+</html>
