@@ -23,20 +23,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Copy lab2 files to root
-        run: |
-          mkdir -p dist/lab2
-          cp -r lab2/public/* dist/lab2/
-          mkdir -p dist/lab3
-          cp -r lab3/src/public/* dist/lab3/
-          mkdir -p dist/landing
-          cp -r landing/src/public/* dist/landing/
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'dist'
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
