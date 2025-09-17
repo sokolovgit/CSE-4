@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <a href="../../../landing/src/public/index.html">Home</a>
+            <a href="../../../lab2/public/index.html">Lab 2</a>
+            <a href="../../../lab3/src/public/index.html">Lab 3</a>
+        </nav>
+    </header>
+    <div class="create-report">
+        <h2>Create Report</h2>
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('details')">Details</button>
+            <button class="tab-button" onclick="openTab('comments')">Comments</button>
+        </div>
+        <div id="details" class="tab-content active">
+            <div class="form-container">
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="summary">Summary *</label>
+                        <input type="text" id="summary" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Project *</label>
+                        <select id="project" required title="Click to select Project">
+                            <option value="">Select Project</option>
+                            <option value="start_up">Start_Up</option>
+                            <option value="testing_project">Testing_Project</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="issue-type">Issue Type *</label>
+                        <select id="issue-type" required title="Click to select Issue Type">
+                            <option value="">Select Issue Type</option>
+                            <option value="bug">Bug</option>
+                            <option value="task">Task</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority *</label>
+                        <select id="priority" required title="Click to select Priority">
+                            <option value="">Select Priority</option>
+                            <option value="critical">Critical</option>
+                            <option value="major">Major</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="affected-version">Affect Version</label>
+                        <input type="text" id="affected-version" maxlength="15">
+                    </div>
+                    <div class="form-group">
+                        <label for="fixed-version">Fix Version</label>
+                        <input type="text" id="fixed-version" maxlength="15">
+                    </div>
+                    <div class="form-group">
+                        <label for="due-date">Due Date</label>
+                        <input type="text" id="due-date" value="Select a Date" title="Click to select Due Date">
+                    </div>
+                </div>
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="reporter">Reporter</label>
+                        <input type="text" id="reporter" class="readonly" value="TestAdmin" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignee">Assignee</label>
+                        <select id="assignee" title="Click to select Assignee">
+                            <option value="">Select Assignee</option>
+                            <option value="user1">User1</option>
+                            <option value="user2">User2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="severity">Severity</label>
+                        <select id="severity" title="Click to select Severity">
+                            <option value="">Select Severity</option>
+                            <option value="critical">Critical</option>
+                            <option value="major">Major</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="environment">Environment</label>
+                        <select id="environment" title="Click to select Environment">
+                            <option value="">Select Environment</option>
+                            <option value="sit">SIT</option>
+                            <option value="uat">UAT</option>
+                            <option value="pdn">PDN</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <input type="text" id="status" class="readonly" value="New" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" maxlength="10000"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="comments" class="tab-content">
+            <div class="form-container">
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="comment">Comment</label>
+                        <textarea id="comment" maxlength="10000"></textarea>
+                    </div>
+                    <button id="add-comment" disabled title="Click to Add Comment">Add Comment</button>
+                </div>
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="all-comments">All Comments</label>
+                        <textarea id="all-comments" class="readonly" maxlength="10000" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button title="Click to Save Report">Save Report</button>
+            <button title="Click to Close">Close</button>
+        </div>
+    </div>
+    <script>
+        function openTab(tabName) {
+            const tabs = document.getElementsByClassName('tab-content');
+            const buttons = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+                buttons[i].classList.remove('active');
+            }
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+        document.getElementById('comment').addEventListener('input', function() {
+            document.getElementById('add-comment').disabled = !this.value.trim();
+        });
+        document.getElementById('add-comment').addEventListener('click', function() {
+            const comment = document.getElementById('comment').value;
+            const allComments = document.getElementById('all-comments');
+            if (comment.trim()) {
+                allComments.value += `🡨Comment has been added by TestAdmin at ${new Date().toLocaleString()}🡪 ${comment}\n`;
+                document.getElementById('comment').value = '';
+                this.disabled = true;
+                allComments.scrollTop = allComments.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
